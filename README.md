@@ -6,24 +6,21 @@ Here's a random, non cherry-picked, example of what `srez` and a neural network 
 
 From left to right:
 
-  # Column 1 is 16x16 input (created for demo purposes by downsampling a 64x64 image)
+  1. Column 1 is 16x16 input (created for demo purposes by downsampling a 64x64 image)
 
-  # Column 2 is output of standard bicubic interpolation
+  2. Column 2 is output of standard bicubic interpolation
 
-  # Column 3 is 64x64 output of neural net
+  3. Column 3 is 64x64 output of neural net
 
-  # Column 4 is ground truth image used to produce column 1
+  4. Column 4 is ground truth image used to produce column 1
 
 ![Example output](srez_sample_output.png)
 
-As you can see, the neural network created plausible representations that differ to varying degrees from ground truth images. Image creation is determined based on whatever dataset of images ("training set") has been fed to the neural net. Different configulations or different training data will result in the neural net forming different theories and thus create different outputs.
+Image creation is determined based on whatever dataset of images ("training set") has been fed to the neural net. Different configulations or different training data will result in the neural net forming different theories and thus create different outputs. For example, compare columns 3 & 4.
 
-Training set influence can be noticed, for example, by comparing columns 3 & 4 of the images above:
+  * The training set was mainly composed of well-illuminated faces looking straight ahead. Thus an output's quality is poorer when an imput face is at an angle, poorly illuminated, or partially occluded by eyeglasses or hands.
 
-  # The training set was mainly composed of well-illuminated faces looking straight ahead. Thus the created images' plausibility and crispness is lower when a face is at an angle, poorly illuminated, or partially occluded by eyeglasses or hands.
-
-  # The training set was `Large-scale CelebFaces Attributes (CelebA) Dataset`is a large-scale face attributes dataset with more than 200K celebrity images. Alternate datasets will yield different outputs. Many other public [face datasets](https://github.com/betars/Face-Resources) are available, including `[Labeled Faces in the Wild](http://vis-www.cs.umass.edu/lfw/)` which is frequently used in deep learning competitions.
-
+  * The training set was [Large-scale CelebFaces Attributes (CelebA) Dataset](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) is a large-scale face attributes dataset with more than 200K celebrity images. Alternate datasets will yield different outputs. Many other public [face datasets](https://github.com/betars/Face-Resources) are available, including [Labeled Faces in the Wild](http://vis-www.cs.umass.edu/lfw/) which is frequently used in deep learning competitions.
 
 
 # How it works
